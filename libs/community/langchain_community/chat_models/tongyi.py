@@ -603,7 +603,7 @@ class ChatTongyi(BaseChatModel):
             for index, tool_call in enumerate(message["tool_calls"]):
                 function = tool_call["function"]
 
-                if prev_message.get("tool_calls"):
+                if prev_message.get("tool_calls") and index < len(prev_message["tool_calls"]):
                     prev_function = prev_message["tool_calls"][index]["function"]
 
                     if "name" in function:
